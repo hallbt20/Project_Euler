@@ -1,7 +1,5 @@
 from math import isqrt
 from math import gcd
-from math import floor
-import numpy as np
 
 dictionary = {}
 
@@ -9,7 +7,7 @@ test = []
 
 for n in [num for num in range(1, 1000) if num % 2 == 1]:
     bound = (-n + isqrt(pow(n, 2) + 6000000)) // 2
-    for m in [num for num in range(n + 2, bound) if num % 2 == 1 and gcd(num, n) == 1]:
+    for m in [num for num in range(n + 2, bound + 1) if num % 2 == 1 and gcd(num, n) == 1]:
         L = pow(m, 2) + m * n
         if L in test:
             continue
@@ -31,11 +29,3 @@ for key in dictionary:
         counter += 1
 
 print(counter)
-
-print(len(test))
-
-print(len(set(test)))
-        #a = m * n
-        #b = (pow(m, 2) - pow(n, 2)) // 2
-        #c = (pow(m, 2) + pow(n, 2)) // 2
-        #print(a, b, c, sum([a, b, c]))
